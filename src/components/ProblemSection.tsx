@@ -5,7 +5,7 @@ const problemCards = [
   {
     icon: Search,
     title: 'Pesquisa Online',
-    description: 'Mais de 80% das pessoas pesquisam na internet antes de comprar. Se você não está lá, está perdendo vendas.',
+    description: 'Mais de 80% das pessoas pesquisam na internet antes de comprar. Se você não está lá, está perdendo vendas e deixando dinheiro na mesa.',
   },
   {
     icon: EyeOff,
@@ -15,7 +15,7 @@ const problemCards = [
   {
     icon: UserMinus,
     title: 'Perda de Clientes',
-    description: 'Cada cliente que não encontra você está encontrando e escolhendo o seu concorrente.',
+    description: 'Cada cliente que não encontra você, está encontrando e escolhendo o seu concorrente.',
   },
 ];
 

@@ -8,7 +8,7 @@ export const Footer = () => {
               <span className="text-primary-foreground font-bold text-sm">W</span>
             </div>
             <span className="text-muted-foreground text-sm">
-              WM Star Agência Digital © Todos os direitos reservados.
+              WM STAR — Agência Digital © Todos os direitos reservados.
             </span>
           </div>
           

@@ -4,23 +4,23 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const stats = [
   {
     icon: TrendingUp,
-    value: '+300%',
+    value: '+480%',
     label: 'Aumento de visibilidade',
   },
   {
     icon: Users,
-    value: '+120',
+    value: '+130',
     label: 'Leads em 30 dias',
   },
   {
     icon: Target,
-    value: '94%',
-    label: 'Taxa de conversão',
+    value: '55%',
+    label: 'Aumento de performance médio',
   },
   {
     icon: BadgeCheck,
-    value: '100+',
-    label: 'Empresas atendidas',
+    value: '+100',
+    label: 'Clientes satisfeitos',
   },
 ];
 

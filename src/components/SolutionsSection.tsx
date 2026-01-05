@@ -4,10 +4,10 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const solutions = [
   {
     icon: Map,
-    title: 'Google Meu Negócio',
+    title: 'Perfil da Empresa no Google',
     subtitle: 'Domine as buscas locais',
     features: [
-      { icon: Globe, text: 'Apareça no Google Maps' },
+      { icon: Globe, text: 'Apareça no topo do Google Maps' },
       { icon: Users, text: 'Atraia clientes próximos' },
       { icon: Zap, text: 'Resultados em semanas' },
     ],
@@ -33,7 +33,7 @@ export const SolutionsSection = () => {
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             A solução para dominar o{' '}
-            <span className="neon-text">espaço digital</span>
+            <span className="neon-text">digital</span>
           </h2>
         </AnimateOnScroll>
 

@@ -4,15 +4,15 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const storySteps = [
   {
     icon: Star,
-    text: 'Em um universo repleto de possibilidades, sua marca pode brilhar como a primeira estrela que o cliente encontra.',
+    text: 'Hoje, seus clientes pesquisam no Google antes de comprar. Se sua empresa não aparece bem posicionada, ela simplesmente não entra na decisão.',
   },
   {
     icon: Sparkles,
-    text: 'Quando sua presença é estratégica, você não espera ser descoberto – você conquista a atenção.',
+    text: 'Com posicionamento estratégico, sua empresa passa a aparecer para pessoas que já têm intenção real de compra.',
   },
   {
     icon: Rocket,
-    text: 'Você não depende da sorte: conquista visibilidade constante e transforma cliques em clientes reais.',
+    text: 'O resultado é previsibilidade: mais visibilidade, mais contatos e mais clientes chegando todos os dias.',
   },
 ];
 
@@ -51,7 +51,7 @@ export const StorySection = () => {
                   </div>
                   <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed pt-2">
                     {step.text.split(' ').map((word, i) => {
-                      const highlightWords = ['primeira estrela', 'estratégica', 'visibilidade constante', 'clientes reais'];
+                      const highlightWords = ['pesquisam no Google', 'posicionamento estratégico', 'previsibilidade', 'todos os dias'];
                       const isHighlight = highlightWords.some(hw => 
                         step.text.toLowerCase().includes(hw) && 
                         hw.toLowerCase().includes(word.toLowerCase())

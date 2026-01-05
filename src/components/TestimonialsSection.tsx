@@ -19,7 +19,7 @@ const testimonials = [
   {
     name: 'Luiz',
     role: 'Dono das lojas Bicão Rações & PetShop e Rações do Piau',
-    content: 'O trabalho de otimização na loja foi muito eficiente! Estamos no topo do bairro, recomendo demais! Abs',
+    content: 'O trabalho de otimização na loja foi muito eficiente! Estamos no topo da Vila da Penha em rações!!! Recomendo! Abs',
     rating: 5,
     avatar: 'L',
   },

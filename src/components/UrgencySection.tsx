@@ -4,28 +4,28 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const plans = [
   {
     icon: MapPin,
-    title: 'Plano GMN',
-    subtitle: 'Google Meu Negócio',
+    title: 'Perfil de Empresa no Google',
+    subtitle: 'Ideal para empresas que dependem de clientes da região',
     features: [
-      'Criação e otimização do perfil',
-      'Gestão de avaliações',
-      'Fotos profissionais do negócio',
-      'Posts semanais no Google',
-      'Relatórios mensais de desempenho',
+      'Melhora de posicionamento nas buscas do Google',
+      'Mais ligações, mensagens no WhatsApp e visitas',
+      'Autoridade local construída de forma consistente',
+      'Resultados visíveis em poucas semanas',
+      'Relatórios detalhados de métricas e desempenho',
       'Suporte dedicado',
     ],
   },
   {
     icon: TrendingUp,
-    title: 'Plano Tráfego Pago',
-    subtitle: 'Gestão de Anúncios',
+    title: 'Gestão de Tráfego Pago',
+    subtitle: 'Ideal para quem quer acelerar vendas e escalar faturamento',
     features: [
-      'Campanhas no Google Ads',
-      'Anúncios no Facebook e Instagram',
-      'Criação de Landing Pages',
-      'Copywriting persuasivo',
-      'Testes A/B contínuos',
-      'Otimização de conversões',
+      'Anúncios no Google Ads e Meta Ads',
+      'Revisão de estrutura comercial',
+      'Especialista de Copywriting para criativos',
+      'Página de vendas de alta conversão',
+      'Controle total de investimento e ROI',
+      'Análise de desempenho e Follow-up',
     ],
   },
 ];
@@ -39,14 +39,14 @@ export const UrgencySection = () => {
         <AnimateOnScroll className="text-center mb-8">
           <p className="text-primary font-semibold text-lg mb-4">Quebrar esse ciclo é urgente</p>
           <button className="btn-neon-outline mb-12">
-            Vamos mudar isso agora
+            Quero mudar isso agora
           </button>
         </AnimateOnScroll>
 
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-            Cada dia parado é um cliente a mais para{' '}
-            <span className="neon-text">os concorrentes</span>
+            Cada dia parado é um cliente a mais{' '}
+            <span className="neon-text">fechando com seu concorrente</span>
           </h2>
         </AnimateOnScroll>
 
@@ -74,7 +74,7 @@ export const UrgencySection = () => {
                 </ul>
 
                 <button className="w-full btn-neon inline-flex items-center justify-center gap-2 group/btn">
-                  Escolher plano
+                  Avaliar Cenário
                   <ArrowRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
                 </button>
               </div>

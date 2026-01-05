@@ -3,46 +3,46 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 
 const testimonials = [
   {
-    name: 'Ricardo Oliveira',
-    role: 'CEO, AutoPeças Express',
-    content: 'Depois de apenas 2 meses com a WM Star, nossa loja aparece no topo do Google. As vendas aumentaram 40% e recebemos ligações todos os dias de novos clientes!',
+    name: 'Mauricio',
+    role: 'Proprietário, Pindokos Pet',
+    content: 'Depois da otimização da WM STAR, nosso PET aparece no topo do Google. As vendas aumentaram uns 40% e recebemos pedidos todos os dias de clientes vindo do Google. Show!',
     rating: 5,
-    avatar: 'RO',
+    avatar: 'M',
   },
   {
-    name: 'Fernanda Santos',
-    role: 'Proprietária, Clínica Estética Bella',
-    content: 'Eu não acreditava muito em marketing digital, mas a equipe me convenceu. Hoje tenho agenda lotada e uma lista de espera. Valeu cada centavo investido!',
+    name: 'Alex Araújo',
+    role: 'Proprietário, Churrascaria AlexGrill',
+    content: 'Eu não conhecia muito sobre o que se podia fazer na internet, mas hoje a churrascaria tá bombando!! Gratidão aos garotos, vocês são 10!!',
     rating: 5,
-    avatar: 'FS',
+    avatar: 'AA',
   },
   {
-    name: 'Carlos Mendes',
-    role: 'Dono, Restaurante Sabor & Arte',
-    content: 'O tráfego pago mudou nosso negócio. Antes dependíamos só de boca a boca, agora temos reservas online todo dia. Recomendo demais!',
+    name: 'Luiz',
+    role: 'Dono das lojas Bicão Rações & PetShop e Rações do Piau',
+    content: 'O trabalho de otimização na loja foi muito eficiente! Estamos no topo do bairro, recomendo demais! Abs',
     rating: 5,
-    avatar: 'CM',
+    avatar: 'L',
   },
   {
-    name: 'Ana Paula Lima',
-    role: 'Diretora, Escritório de Advocacia Lima',
-    content: 'Profissionalismo e resultados reais. Nossa presença no Google Meu Negócio disparou e recebemos consultas de clientes que nunca chegariam até nós.',
+    name: 'João Victor',
+    role: 'Propietário, JM CELL',
+    content: 'Rapaziada tirou onda, melhorou bastante o fluxo da loja. Os serviços e vendas aumentam com toda certeza, tmj',
     rating: 5,
-    avatar: 'AL',
+    avatar: 'JV',
   },
   {
-    name: 'Marcos Ferreira',
-    role: 'Fundador, Tech Solutions',
-    content: 'A estratégia de landing page + tráfego pago foi um divisor de águas. Captamos mais leads em um mês do que em todo o ano anterior.',
+    name: 'Luciana R.',
+    role: 'Propietária, Instituto de Beleza Crisálida',
+    content: 'Fiquei muito feliz com o trabalho no Google aqui do salão, e mais encantada ainda com meu site... Ameiiiiii, vocês são 10!!',
     rating: 5,
-    avatar: 'MF',
+    avatar: 'LR',
   },
   {
-    name: 'Juliana Costa',
-    role: 'Gerente, Imobiliária Costa',
-    content: 'Fantástico! As campanhas são muito bem segmentadas. Conseguimos vender 3 imóveis só com os leads que vieram do Instagram no primeiro mês.',
+    name: 'Wagner',
+    role: 'Propietário, Cavaleiro Tattoo',
+    content: 'Tiraram onda no site para os 2 estúdios, serviço do Google e Gestão de Tráfego. A visibilidade dobrou praticamente, vamos pra cima!',
     rating: 5,
-    avatar: 'JC',
+    avatar: 'W',
   },
 ];
 
@@ -55,7 +55,7 @@ export const TestimonialsSection = () => {
             O que nossos <span className="neon-text">clientes dizem</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Empresas reais, resultados reais. Veja como transformamos negócios através do marketing digital.
+            Empresas reais, resultados reais. Veja como transformamos negócios através da internet e um trabalho bem feito.
           </p>
         </AnimateOnScroll>
 

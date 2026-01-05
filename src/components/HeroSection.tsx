@@ -76,14 +76,10 @@ export const HeroSection = () => {
           {/* Right Content - Astronaut with Social Icons */}
           <div className="relative flex justify-center animate-fade-in-up animation-delay-200">
             <div className="relative floating-animation">
-              {/* Fade gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent rounded-2xl pointer-events-none z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50 rounded-2xl pointer-events-none z-10" />
-              
               <img
                 src={astronautHero}
                 alt="Astronauta trabalhando no espaço digital"
-                className="w-full max-w-2xl rounded-2xl"
+                className="w-full max-w-lg rounded-2xl"
               />
               
               {/* Floating Social Icons */}
@@ -102,9 +98,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

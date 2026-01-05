@@ -59,16 +59,16 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Enquanto seus clientes procuram no Google ou rolam o feed, eles estão encontrando{' '}
+              Enquanto seus clientes procuram no Google ou rolam o feed, eles só encontram{' '}
               <span className="neon-text">seus concorrentes</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-              Estar no Google e no Instagram não é mais uma opção. É o mínimo para quem quer crescer.
+              Estar bem posicionado no Google deixou de ser diferencial — virou sobrevivência.
             </p>
 
             <button className="btn-neon inline-flex items-center gap-2 text-lg group">
-              Quero ser encontrado agora
+              Quero saber onde estou perdendo clientes
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

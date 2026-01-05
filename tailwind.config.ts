@@ -76,8 +76,8 @@ export default {
           "50%": { transform: "translateY(-20px) rotate(2deg)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.5)" },
-          "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(162 100% 50% / 0.5)" },
+          "50%": { boxShadow: "0 0 40px hsl(162 100% 50% / 0.8), 0 0 60px hsl(162 100% 50% / 0.4)" },
         },
         twinkle: {
           "0%, 100%": { opacity: "0.3", transform: "scale(1)" },

@@ -59,8 +59,8 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Quando seus clientes procuram no Google ou rolam o feed, eles {' '}
-              <span className="neon-text">só encontram seus concorrentes</span>
+              Quando seus clientes procuram no Google ou rolam o feed, eles só{' '}
+              <span className="neon-text">encontram seus concorrentes</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">

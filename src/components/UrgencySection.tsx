@@ -14,6 +14,7 @@ const plans = [
       'Relatórios detalhados de métricas e desempenho',
       'Suporte dedicado',
     ],
+    whatsappMessage: 'Tenho interesse no serviço de Perfil de Empresa no Google. Quero avaliar o cenário do meu negócio e melhorar meu posicionamento local.',
   },
   {
     icon: TrendingUp,
@@ -27,6 +28,7 @@ const plans = [
       'Controle total de investimento e ROI',
       'Análise de desempenho e Follow-up',
     ],
+    whatsappMessage: 'Tenho interesse em Gestão de Tráfego Pago. Quero avaliar meu cenário atual e escalar vendas com anúncios.',
   },
 ];
 
@@ -73,10 +75,15 @@ export const UrgencySection = () => {
                   ))}
                 </ul>
 
-                <button className="w-full btn-neon inline-flex items-center justify-center gap-2 group/btn">
+                <a 
+                  href={`https://wa.me/5521968197138?text=${encodeURIComponent(plan.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full btn-neon inline-flex items-center justify-center gap-2 group/btn"
+                >
                   Avaliar Cenário
                   <ArrowRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+                </a>
               </div>
             </AnimateOnScroll>
           ))}

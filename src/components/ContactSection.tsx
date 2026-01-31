@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight, Send, Loader2 } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { toast } from '@/hooks/use-toast';
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0X0q7J3VfsGCkCxDqUCLG-6yAGfz5AsaHiP0lGYszyg48rP_T8Tdoimg-5DsVDzFG4w/exec';
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -9,14 +11,41 @@ export const ContactSection = () => {
     email: '',
     whatsapp: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve.",
-    });
-    setFormData({ nome: '', email: '', whatsapp: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.nome,
+          email: formData.email,
+          phone: formData.whatsapp,
+        }),
+      });
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em breve.",
+      });
+      setFormData({ nome: '', email: '', whatsapp: '' });
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,11 +109,21 @@ export const ContactSection = () => {
 
               <button
                 type="submit"
-                className="w-full btn-neon inline-flex items-center justify-center gap-2 text-lg group"
+                disabled={isSubmitting}
+                className="w-full btn-neon inline-flex items-center justify-center gap-2 text-lg group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-5 h-5" />
-                ENVIAR
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    ENVIANDO...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    ENVIAR
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </button>
             </div>
           </form>

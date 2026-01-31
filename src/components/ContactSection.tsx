@@ -6,9 +6,8 @@ import { toast } from '@/hooks/use-toast';
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     nome: '',
+    email: '',
     whatsapp: '',
-    tipoNegocio: '',
-    mensagem: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,7 +16,7 @@ export const ContactSection = () => {
       title: "Mensagem enviada!",
       description: "Entraremos em contato em breve.",
     });
-    setFormData({ nome: '', whatsapp: '', tipoNegocio: '', mensagem: '' });
+    setFormData({ nome: '', email: '', whatsapp: '' });
   };
 
   return (
@@ -39,7 +38,7 @@ export const ContactSection = () => {
             <div className="space-y-6">
               <div>
                 <label className="block text-foreground font-medium mb-2">
-                  Nome Completo
+                  Nome
                 </label>
                 <input
                   type="text"
@@ -53,7 +52,21 @@ export const ContactSection = () => {
 
               <div>
                 <label className="block text-foreground font-medium mb-2">
-                  Whatsapp
+                  E-mail
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-foreground font-medium mb-2">
+                  Celular (WhatsApp)
                 </label>
                 <input
                   type="tel"
@@ -62,37 +75,6 @@ export const ContactSection = () => {
                   className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                   placeholder="(00) 00000-0000"
                   required
-                />
-              </div>
-
-              <div>
-                <label className="block text-foreground font-medium mb-2">
-                  Tipo de Negócio
-                </label>
-                <select
-                  value={formData.tipoNegocio}
-                  onChange={(e) => setFormData({ ...formData, tipoNegocio: e.target.value })}
-                  className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
-                  required
-                >
-                  <option value="" disabled>Selecione...</option>
-                  <option value="restaurante">Restaurante / Alimentação</option>
-                  <option value="varejo">Varejo / Loja</option>
-                  <option value="servicos">Prestação de Serviços</option>
-                  <option value="saude">Saúde / Beleza</option>
-                  <option value="outro">Outro</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-foreground font-medium mb-2">
-                  Mensagem
-                </label>
-                <textarea
-                  value={formData.mensagem}
-                  onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                  className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors min-h-[120px] resize-none"
-                  placeholder="Conte um pouco sobre seu negócio..."
                 />
               </div>
 

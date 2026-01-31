@@ -40,9 +40,14 @@ export const UrgencySection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll className="text-center mb-8">
           <p className="text-primary font-semibold text-lg mb-4">Quebrar esse ciclo é urgente</p>
-          <button className="btn-neon-outline mb-12">
+          <a 
+            href="https://wa.me/5521968197138?text=Quero%20mudar%20esse%20cen%C3%A1rio%20agora.%20Entendi%20o%20ciclo%20apresentado%20na%20p%C3%A1gina%20da%20WM%20STAR%20e%20preciso%20de%20ajuda."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-neon-outline mb-12 inline-block"
+          >
             Quero mudar isso agora
-          </button>
+          </a>
         </AnimateOnScroll>
 
         <AnimateOnScroll className="text-center mb-16">

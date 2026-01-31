@@ -67,10 +67,15 @@ export const HeroSection = () => {
               Estar bem posicionado no Google deixou de ser diferencial — virou sobrevivência.
             </p>
 
-            <button className="btn-neon inline-flex items-center gap-2 text-lg group">
+            <a 
+              href="https://wa.me/5521968197138?text=Quero%20entender%20onde%20estou%20perdendo%20clientes.%20Vim%20da%20p%C3%A1gina%20da%20WM%20STAR%20e%20quero%20uma%20an%C3%A1lise%20do%20meu%20cen%C3%A1rio."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-neon inline-flex items-center gap-2 text-lg group"
+            >
               Quero saber onde estou perdendo clientes
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
 
           {/* Right Content - Astronaut with Social Icons */}

@@ -1,25 +1,71 @@
-import { TrendingUp, Users, Target, BadgeCheck } from 'lucide-react';
+import { TrendingUp, Users, Target, BadgeCheck, LucideIcon } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
+import { useCountUp } from '@/hooks/useCountUp';
+
+interface StatItemProps {
+  icon: LucideIcon;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  delay: number;
+}
+
+const StatItem = ({ icon: Icon, value, prefix = '', suffix = '', label, delay }: StatItemProps) => {
+  const { ref, displayValue } = useCountUp({ 
+    end: value, 
+    duration: 2000, 
+    prefix, 
+    suffix 
+  });
+
+  return (
+    <AnimateOnScroll delay={delay}>
+      <div 
+        ref={ref}
+        className="glass-card p-6 md:p-8 text-center group hover:border-primary/30 transition-all duration-500"
+      >
+        <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 group-hover:shadow-neon-subtle transition-all duration-500">
+          <Icon className="w-7 h-7 text-primary" />
+        </div>
+        <div className="text-3xl md:text-4xl font-bold text-foreground mb-2 neon-text">
+          {displayValue}
+        </div>
+        <div className="text-sm md:text-base text-muted-foreground">
+          {label}
+        </div>
+      </div>
+    </AnimateOnScroll>
+  );
+};
 
 const stats = [
   {
     icon: TrendingUp,
-    value: '+480%',
+    value: 480,
+    prefix: '+',
+    suffix: '%',
     label: 'Aumento de visibilidade',
   },
   {
     icon: Users,
-    value: '+130',
+    value: 130,
+    prefix: '+',
+    suffix: '',
     label: 'Leads em 30 dias',
   },
   {
     icon: Target,
-    value: '55%',
+    value: 55,
+    prefix: '',
+    suffix: '%',
     label: 'Aumento de performance médio',
   },
   {
     icon: BadgeCheck,
-    value: '+100',
+    value: 100,
+    prefix: '+',
+    suffix: '',
     label: 'Clientes satisfeitos',
   },
 ];
@@ -37,19 +83,15 @@ export const StatsSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
-            <AnimateOnScroll key={stat.label} delay={index * 100}>
-              <div className="glass-card p-6 md:p-8 text-center group hover:border-primary/30 transition-all duration-500">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 group-hover:shadow-neon-subtle transition-all duration-500">
-                  <stat.icon className="w-7 h-7 text-primary" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2 neon-text">
-                  {stat.value}
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
-            </AnimateOnScroll>
+            <StatItem
+              key={stat.label}
+              icon={stat.icon}
+              value={stat.value}
+              prefix={stat.prefix}
+              suffix={stat.suffix}
+              label={stat.label}
+              delay={index * 100}
+            />
           ))}
         </div>
       </div>

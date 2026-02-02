@@ -17,7 +17,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-card py-3' : 'py-6'
+        isScrolled ? 'glass-card py-5' : 'py-7'
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -25,7 +25,7 @@ export const Header = () => {
           <img 
             src={wmStarLogo} 
             alt="WM STAR - Agência Digital" 
-            className="h-480 md:h-360 w-auto"
+            className="h-20 md:h-24 w-auto"
           />
         </a>
 

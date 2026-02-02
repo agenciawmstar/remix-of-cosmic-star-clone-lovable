@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import wmStarLogo from '@/assets/wm-star-logo.png';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,13 +21,12 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">W</span>
-          </div>
-          <span className="text-foreground font-bold text-xl">
-            WM STAR <span className="text-muted-foreground font-normal text-sm">- Agência Digital</span>
-          </span>
+        <a href="#" className="flex items-center">
+          <img 
+            src={wmStarLogo} 
+            alt="WM STAR - Agência Digital" 
+            className="h-10 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}

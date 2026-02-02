@@ -12,6 +12,7 @@ const WHATSAPP_SUCCESS_MESSAGE = encodeURIComponent(
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     nome: '',
+    fullName: '',
     email: '',
     whatsapp: '',
   });
@@ -30,13 +31,13 @@ export const ContactSection = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fullName: formData.nome,
+          fullName: formData.fullName,
           email: formData.email,
           phone: formData.whatsapp,
         }),
       });
 
-      setFormData({ nome: '', email: '', whatsapp: '' });
+      setFormData({ nome: '', fullName: '', email: '', whatsapp: '' });
       setIsSuccess(true);
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
@@ -115,11 +116,12 @@ export const ContactSection = () => {
                   <input
                     type="text"
                     value={formData.nome}
-                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, nome: e.target.value, fullName: e.target.value })}
                     className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                     placeholder="Seu nome"
                     required
                   />
+                  <input type="hidden" name="fullName" value={formData.fullName} />
                 </div>
 
                 <div>

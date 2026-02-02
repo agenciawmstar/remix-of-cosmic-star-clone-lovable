@@ -25,7 +25,7 @@ export const Header = () => {
           <img 
             src={wmStarLogo} 
             alt="WM STAR - Agência Digital" 
-            className="h-20 md:h-24 w-auto"
+            className="h-48 md:h-36 w-auto"
           />
         </a>
 

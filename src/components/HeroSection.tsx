@@ -34,8 +34,18 @@ const FacebookIcon = () => (
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Background Effects */}
+    <section 
+      className="relative min-h-screen flex items-center pt-24 overflow-hidden"
+      style={{
+        backgroundImage: `url(${astronautHero})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'right center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Overlay gradientes para legibilidade */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
       <div className="absolute inset-0 gradient-nebula" />
       <div className="absolute inset-0 bg-noise pointer-events-none" />
       
@@ -55,8 +65,8 @@ export const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+        <div className="max-w-2xl">
+          {/* Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Quando seus clientes procuram no Google ou rolam o feed, eles só{' '}
@@ -78,36 +88,17 @@ export const HeroSection = () => {
             </a>
           </div>
 
-          {/* Right Content - Astronaut integrated with background */}
-          <div className="relative flex justify-center animate-fade-in-up animation-delay-200">
-            <div className="relative floating-animation">
-              {/* Gradient overlay para integrar ao fundo */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-background/40 z-10 pointer-events-none" />
-              
-              <img
-                src={astronautHero}
-                alt="Astronauta trabalhando no espaço digital"
-                className="w-full max-w-2xl lg:max-w-3xl object-contain mix-blend-lighten opacity-90"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%), linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                }}
-              />
-              
-              {/* Floating Social Icons */}
-              <div className="absolute top-1/4 -left-4 md:left-0 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '0.5s' }}>
-                <GoogleIcon />
-              </div>
-              
-              <div className="absolute top-1/3 -right-4 md:right-4 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '1s' }}>
-                <InstagramIcon />
-              </div>
-              
-              <div className="absolute bottom-1/3 -left-2 md:left-8 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '1.5s' }}>
-                <FacebookIcon />
-              </div>
-            </div>
+          {/* Floating Social Icons */}
+          <div className="absolute top-1/4 right-8 md:right-1/3 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '0.5s' }}>
+            <GoogleIcon />
+          </div>
+          
+          <div className="absolute top-1/2 right-4 md:right-1/4 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '1s' }}>
+            <InstagramIcon />
+          </div>
+          
+          <div className="absolute bottom-1/4 right-12 md:right-1/3 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '1.5s' }}>
+            <FacebookIcon />
           </div>
         </div>
       </div>

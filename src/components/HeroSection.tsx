@@ -78,25 +78,33 @@ export const HeroSection = () => {
             </a>
           </div>
 
-          {/* Right Content - Astronaut with Social Icons */}
+          {/* Right Content - Astronaut integrated with background */}
           <div className="relative flex justify-center animate-fade-in-up animation-delay-200">
             <div className="relative floating-animation">
+              {/* Gradient overlay para integrar ao fundo */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-background/40 z-10 pointer-events-none" />
+              
               <img
                 src={astronautHero}
                 alt="Astronauta trabalhando no espaço digital"
-                className="w-full max-w-lg rounded-2xl"
+                className="w-full max-w-2xl lg:max-w-3xl object-contain mix-blend-lighten opacity-90"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%), linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                }}
               />
               
               {/* Floating Social Icons */}
-              <div className="absolute top-1/4 -left-4 md:left-0 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '0.5s' }}>
+              <div className="absolute top-1/4 -left-4 md:left-0 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '0.5s' }}>
                 <GoogleIcon />
               </div>
               
-              <div className="absolute top-1/3 -right-4 md:right-4 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '1s' }}>
+              <div className="absolute top-1/3 -right-4 md:right-4 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '1s' }}>
                 <InstagramIcon />
               </div>
               
-              <div className="absolute bottom-1/3 -left-2 md:left-8 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute bottom-1/3 -left-2 md:left-8 glass-card p-3 rounded-xl floating-animation shadow-neon-subtle z-20" style={{ animationDelay: '1.5s' }}>
                 <FacebookIcon />
               </div>
             </div>

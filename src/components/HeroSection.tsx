@@ -43,11 +43,15 @@ export const HeroSection = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Overlay gradientes para legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
-      <div className="absolute inset-0 gradient-nebula" />
-      <div className="absolute inset-0 bg-noise pointer-events-none" />
+      {/* Overlay gradientes para legibilidade - mais suave para mostrar o astronauta */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/40" />
+      
+      {/* Fade suave na parte inferior para transição com a próxima seção */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      
+      <div className="absolute inset-0 gradient-nebula opacity-60" />
+      <div className="absolute inset-0 bg-noise pointer-events-none opacity-50" />
       
       {/* Animated Stars */}
       <div className="absolute inset-0 overflow-hidden">

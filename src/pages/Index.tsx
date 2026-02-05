@@ -9,6 +9,7 @@ import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import cosmicBg from '@/assets/cosmic-bg.jpg';
 
 const Index = () => {
@@ -27,6 +28,9 @@ const Index = () => {
       
       {/* Exit Intent Popup */}
       <ExitIntentPopup />
+      
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
       
       <div className="relative z-10">
         <Header />

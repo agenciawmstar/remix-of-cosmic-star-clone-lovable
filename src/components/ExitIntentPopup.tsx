@@ -41,7 +41,7 @@ export const ExitIntentPopup = () => {
 
   const handleWhatsApp = () => {
     window.open(
-      'https://wa.me/5521968197138?text=Acabei%20de%20ver%20a%20landing%20page%20da%20WM%20STAR%20e%20quero%20entender%20melhor.',
+      'https://wa.me/5521968197138?text=Acabei%20de%20ver%20a%20landing%20page%20da%20WM%20STAR%20e%20quero%20avaliar%20meu%20caso.',
       '_blank'
     );
     setIsVisible(false);
@@ -73,13 +73,13 @@ export const ExitIntentPopup = () => {
 
         {/* Content */}
         <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-          Antes de sair…
+          Espera um segundo 👀
         </h3>
         
         <p className="text-muted-foreground text-base md:text-lg mb-6 leading-relaxed">
-          Não precisa decidir agora.
-          <br />
-          Podemos conversar por 10 minutos para entender se faz sentido para o seu negócio.
+          Talvez você só queira entender se isso realmente funciona pro seu negócio.
+          <br /><br />
+          Em 10 minutos analisamos seu caso e te falamos com sinceridade se vale a pena ou não. Topa?
         </p>
 
         {/* CTA Button */}
@@ -87,7 +87,7 @@ export const ExitIntentPopup = () => {
           onClick={handleWhatsApp}
           className="btn-neon w-full text-base md:text-lg"
         >
-          Falar com um especialista
+          Avaliação rápida
         </button>
       </div>
     </div>

@@ -50,21 +50,50 @@ export const StorySection = () => {
                     <step.icon className="w-6 h-6 text-primary" />
                   </div>
                   <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed pt-2">
-                    {step.text.split(' ').map((word, i) => {
-                      const highlightWords = ['pesquisam no Google', 'posicionamento estratégico', 'previsibilidade', 'todos os dias'];
-                      const isHighlight = highlightWords.some(hw => 
-                        step.text.toLowerCase().includes(hw) && 
-                        hw.toLowerCase().includes(word.toLowerCase())
-                      );
-                      return (
-                        <span
-                          key={i}
-                          className={isHighlight ? 'text-primary font-semibold' : ''}
-                        >
-                          {word}{' '}
-                        </span>
-                      );
-                    })}
+                    {(() => {
+                      const highlights = [
+                        'pesquisam no Google antes de comprar',
+                        'posicionamento estratégico',
+                        'todos os dias'
+                      ];
+                      
+                      let result: React.ReactNode[] = [];
+                      let text = step.text;
+                      let lastIndex = 0;
+                      
+                      // Find all highlights and their positions
+                      const matches: { start: number; end: number; phrase: string }[] = [];
+                      highlights.forEach(phrase => {
+                        const idx = text.indexOf(phrase);
+                        if (idx !== -1) {
+                          matches.push({ start: idx, end: idx + phrase.length, phrase });
+                        }
+                      });
+                      
+                      // Sort by position
+                      matches.sort((a, b) => a.start - b.start);
+                      
+                      matches.forEach((match, idx) => {
+                        // Add text before this match
+                        if (match.start > lastIndex) {
+                          result.push(<span key={`text-${idx}`}>{text.slice(lastIndex, match.start)}</span>);
+                        }
+                        // Add highlighted phrase
+                        result.push(
+                          <span key={`highlight-${idx}`} className="text-primary font-semibold">
+                            {match.phrase}
+                          </span>
+                        );
+                        lastIndex = match.end;
+                      });
+                      
+                      // Add remaining text
+                      if (lastIndex < text.length) {
+                        result.push(<span key="text-end">{text.slice(lastIndex)}</span>);
+                      }
+                      
+                      return result;
+                    })()}
                   </p>
                 </div>
               </div>

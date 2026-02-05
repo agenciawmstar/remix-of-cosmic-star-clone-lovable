@@ -45,7 +45,7 @@ const stats = [
     value: 480,
     prefix: '+',
     suffix: '%',
-    label: 'de aumento de visibilidade em alguns cases',
+    label: 'de aumento de visibilidade em alguns projetos',
   },
   {
     icon: Users,
@@ -59,7 +59,7 @@ const stats = [
     value: 55,
     prefix: '+',
     suffix: '%',
-    label: 'de aumento médio de performance em perfis de empresa',
+    label: 'de aumento médio de performance em campanhas',
   },
   {
     icon: BadgeCheck,

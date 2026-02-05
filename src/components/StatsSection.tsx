@@ -45,28 +45,28 @@ const stats = [
     value: 480,
     prefix: '+',
     suffix: '%',
-    label: 'Aumento de visibilidade',
+    label: 'de aumento de visibilidade em alguns cases',
   },
   {
     icon: Users,
     value: 130,
     prefix: '+',
     suffix: '',
-    label: 'Leads em 30 dias',
+    label: 'leads gerados em menos de 30 dias em campanhas ativas',
   },
   {
     icon: Target,
     value: 55,
-    prefix: '',
+    prefix: '+',
     suffix: '%',
-    label: 'Aumento de performance médio',
+    label: 'de aumento médio de performance em perfis de empresa',
   },
   {
     icon: BadgeCheck,
-    value: 100,
+    value: 82,
     prefix: '+',
     suffix: '',
-    label: 'Clientes satisfeitos',
+    label: 'clientes atendidos e satisfeitos',
   },
 ];
 
@@ -76,8 +76,8 @@ export const StatsSection = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-            Resultados que{' '}
-            <span className="neon-text">falam por si só</span>
+            Resultados focados em{' '}
+            <span className="neon-text">crescimento real</span>
           </h2>
         </AnimateOnScroll>
 
@@ -94,6 +94,11 @@ export const StatsSection = () => {
             />
           ))}
         </div>
+
+        {/* Disclaimer */}
+        <p className="text-center text-xs text-muted-foreground/70 mt-12">
+          *Os resultados podem variar de acordo com o projeto, investimento e contexto de cada negócio.
+        </p>
       </div>
     </section>
   );

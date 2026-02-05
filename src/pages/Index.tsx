@@ -8,6 +8,7 @@ import { StatsSection } from '@/components/StatsSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import cosmicBg from '@/assets/cosmic-bg.jpg';
 
 const Index = () => {
@@ -23,6 +24,9 @@ const Index = () => {
     >
       {/* Dark overlay for readability */}
       <div className="fixed inset-0 bg-background/80 pointer-events-none" />
+      
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
       
       <div className="relative z-10">
         <Header />

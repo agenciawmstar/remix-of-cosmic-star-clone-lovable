@@ -41,8 +41,8 @@ export const Header = () => {
               alt="WM STAR - Agência Digital"
               className={`w-auto transition-all duration-500 ${
                 isScrolled
-                  ? 'h-20 md:h-24 lg:h-28'
-                  : 'h-28 md:h-36 lg:h-44'
+                  ? 'h-[6.75rem] md:h-[7rem] lg:h-[8.25rem]'
+                  : 'h-[9.5rem] md:h-[10.5rem] lg:h-[13rem]'
               }`}
             />
           </a>

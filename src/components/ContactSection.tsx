@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Send, Loader2, CheckCircle, MessageCircle } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { toast } from '@/hooks/use-toast';
+import { z } from 'zod';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0X0q7J3VfsGCkCxDqUCLG-6yAGfz5AsaHiP0lGYszyg48rP_T8Tdoimg-5DsVDzFG4w/exec';
 
@@ -9,20 +10,66 @@ const WHATSAPP_SUCCESS_MESSAGE = encodeURIComponent(
   'Acabei de enviar meus dados pelo formulário da landing page da WM STAR e gostaria de agilizar o atendimento.'
 );
 
+const RATE_LIMIT_MS = 60000; // 1 minute between submissions
+
+const contactSchema = z.object({
+  nome: z.string().trim().min(2, 'Nome deve ter pelo menos 2 caracteres').max(100, 'Nome muito longo'),
+  email: z.string().trim().email('Email inválido').max(255, 'Email muito longo'),
+  whatsapp: z.string().trim().min(8, 'Telefone inválido').max(20, 'Telefone inválido')
+    .regex(/^[\d\s()+-]+$/, 'Telefone contém caracteres inválidos'),
+});
+
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
     whatsapp: '',
   });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  // Honeypot field - bots will fill this, real users won't see it
+  const [honeypot, setHoneypot] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFieldErrors({});
+
+    // Honeypot check - silently reject bot submissions
+    if (honeypot) {
+      setIsSuccess(true);
+      return;
+    }
+
+    // Rate limiting
+    const lastSubmit = sessionStorage.getItem('lastFormSubmit');
+    if (lastSubmit && Date.now() - parseInt(lastSubmit) < RATE_LIMIT_MS) {
+      toast({
+        title: "Aguarde",
+        description: "Por favor, aguarde um momento antes de enviar novamente.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Zod validation
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0] as string] = err.message;
+        }
+      });
+      setFieldErrors(errors);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      const validated = result.data;
+
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -30,12 +77,13 @@ export const ContactSection = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.nome,
-          email: formData.email,
-          phone: formData.whatsapp,
+          name: validated.nome,
+          email: validated.email,
+          phone: validated.whatsapp,
         }),
       });
 
+      sessionStorage.setItem('lastFormSubmit', Date.now().toString());
       setFormData({ nome: '', email: '', whatsapp: '' });
       setIsSuccess(true);
       (window as any).dataLayer = (window as any).dataLayer || [];
@@ -43,7 +91,6 @@ export const ContactSection = () => {
         event: 'form_submit_success'
       });
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
       toast({
         title: "Erro ao enviar",
         description: "Tente novamente em alguns instantes.",
@@ -111,6 +158,20 @@ export const ContactSection = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="max-w-xl mx-auto glass-card p-8 md:p-12">
+              {/* Honeypot field - hidden from real users */}
+              <div className="absolute opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true" tabIndex={-1}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  autoComplete="off"
+                  tabIndex={-1}
+                />
+              </div>
+
               <div className="space-y-6">
                 <div>
                   <label className="block text-foreground font-medium mb-2">
@@ -121,10 +182,12 @@ export const ContactSection = () => {
                     name="nome"
                     value={formData.nome}
                     onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    maxLength={100}
+                    className={`w-full bg-muted/50 border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${fieldErrors.nome ? 'border-destructive' : 'border-border'}`}
                     placeholder="Seu nome"
                     required
                   />
+                  {fieldErrors.nome && <p className="text-sm text-destructive mt-1">{fieldErrors.nome}</p>}
                 </div>
 
                 <div>
@@ -135,10 +198,12 @@ export const ContactSection = () => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    maxLength={255}
+                    className={`w-full bg-muted/50 border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${fieldErrors.email ? 'border-destructive' : 'border-border'}`}
                     placeholder="seu@email.com"
                     required
                   />
+                  {fieldErrors.email && <p className="text-sm text-destructive mt-1">{fieldErrors.email}</p>}
                 </div>
 
                 <div>
@@ -149,10 +214,12 @@ export const ContactSection = () => {
                     type="tel"
                     value={formData.whatsapp}
                     onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    maxLength={20}
+                    className={`w-full bg-muted/50 border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors ${fieldErrors.whatsapp ? 'border-destructive' : 'border-border'}`}
                     placeholder="(00) 00000-0000"
                     required
                   />
+                  {fieldErrors.whatsapp && <p className="text-sm text-destructive mt-1">{fieldErrors.whatsapp}</p>}
                 </div>
 
                 <button

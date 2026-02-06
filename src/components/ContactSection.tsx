@@ -38,6 +38,10 @@ export const ContactSection = () => {
 
       setFormData({ nome: '', email: '', whatsapp: '' });
       setIsSuccess(true);
+      window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'form_submit_success'
+});
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
       toast({

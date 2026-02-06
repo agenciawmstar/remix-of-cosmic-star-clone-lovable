@@ -30,7 +30,7 @@ export const ContactSection = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          nome: formData.nome,
+          name: formData.nome,
           email: formData.email,
           phone: formData.whatsapp,
         }),

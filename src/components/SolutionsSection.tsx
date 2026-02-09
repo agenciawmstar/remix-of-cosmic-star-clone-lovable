@@ -32,8 +32,8 @@ export const SolutionsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            A solução para{' '}
-            <span className="neon-text">dominar o digital</span>
+            Não é sobre internet. {' '}
+            <span className="neon-text">É sobre ser a opção óbvia.</span>
           </h2>
         </AnimateOnScroll>
 

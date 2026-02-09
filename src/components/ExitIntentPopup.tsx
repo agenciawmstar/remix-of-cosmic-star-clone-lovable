@@ -87,7 +87,7 @@ export const ExitIntentPopup = () => {
           onClick={handleWhatsApp}
           className="btn-neon w-full text-base md:text-lg"
         >
-          Avaliação rápida
+          Me mostra
         </button>
       </div>
     </div>

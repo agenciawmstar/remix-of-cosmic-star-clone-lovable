@@ -73,7 +73,7 @@ export const HeroSection = () => {
           {/* Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Seus clientes já estão procurando por você.A questão é: eles te encontram…{' '}
+              Seus clientes já estão procurando por você. A questão é: eles te encontram…{' '}
               <span className="neon-text">ou encontram seu concorrente?</span>
             </h1>
             

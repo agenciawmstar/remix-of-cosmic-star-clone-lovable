@@ -52,7 +52,7 @@ export const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            O que nossos <span className="neon-text">clientes dizem</span>
+            Negócios locais <span className="neon-text">parecidos com o seu</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Empresas reais, resultados reais. Veja como transformamos negócios através da internet e um trabalho bem feito.

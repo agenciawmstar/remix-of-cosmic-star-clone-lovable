@@ -25,7 +25,7 @@ export const ProblemSection = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            O que acontece antes de um cliente comprar <span className="neon-text">de você</span>
+            O que acontece antes de um cliente <span className="neon-text">comprar de você</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Isso já está acontecendo hoje, com ou sem a sua empresa

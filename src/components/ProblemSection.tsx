@@ -5,7 +5,7 @@ const problemCards = [
   {
     icon: Search,
     title: 'Ele pesquisa no Google',
-    description: 'O cliente não entra no Google para conhecer empresas. Ele entra para resolver algo agora. E escolhe entre quem aparece primeiro.',
+    description: 'O cliente não entra no Google para conhecer empresas. Ele entra para resolver algo agora e escolhe entre quem aparece primeiro.',
   },
   {
     icon: EyeOff,

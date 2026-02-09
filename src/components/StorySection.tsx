@@ -4,15 +4,15 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const storySteps = [
   {
     icon: Star,
-    text: 'Hoje, seus clientes pesquisam no Google antes de comprar. Se sua empresa não aparece bem posicionada, ela simplesmente não entra na decisão.',
+    text: 'Hoje, quem precisa de um serviço não pergunta, pesquisa.',
   },
   {
     icon: Sparkles,
-    text: 'Com posicionamento estratégico, sua empresa passa a aparecer para pessoas que já têm intenção real de compra.',
+    text: 'Quem aparece primeiro entra na decisão. Quem não aparece, nem é considerado.',
   },
   {
     icon: Rocket,
-    text: 'O resultado é previsibilidade: mais visibilidade, mais contatos e mais clientes chegando todos os dias.',
+    text: 'Por isso empresas crescem sem aumentar esforço: elas só passam a ser encontradas todos os dias.',
   },
 ];
 

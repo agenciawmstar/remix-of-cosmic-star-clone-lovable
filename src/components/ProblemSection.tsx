@@ -4,18 +4,18 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 const problemCards = [
   {
     icon: Search,
-    title: 'Pesquisa Online',
-    description: 'Mais de 80% das pessoas pesquisam na internet antes de comprar. Se você não está lá, está perdendo vendas e deixando dinheiro na mesa.',
+    title: 'Ele pesquisa no Google',
+    description: 'O cliente não entra no Google para conhecer empresas. Ele entra para resolver algo agora. E escolhe entre quem aparece primeiro.',
   },
   {
     icon: EyeOff,
-    title: 'Invisibilidade Digital',
-    description: 'Se sua empresa não aparece nos resultados de busca, para o cliente, ela simplesmente não existe.',
+    title: 'Decisão rápida',
+    description: 'Ele não analisa 10 opções. Ele olha 1 ou 2 resultados, abre um deles e chama.',
   },
   {
     icon: UserMinus,
-    title: 'Perda de Clientes',
-    description: 'Cada cliente que não encontra você, está encontrando e escolhendo o seu concorrente.',
+    title: 'Venda Perdida',
+    description: 'Ele precisava do que você vende. Mas falou com quem apareceu primeiro.',
   },
 ];
 
@@ -25,10 +25,10 @@ export const ProblemSection = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            A jornada do <span className="neon-text">cliente moderno</span>
+            O que acontece antes de um cliente comprar <span className="neon-text">de você</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Entenda como a invisibilidade digital está custando clientes para você
+            Isso já está acontecendo hoje, com ou sem a sua empresa
           </p>
         </AnimateOnScroll>
 

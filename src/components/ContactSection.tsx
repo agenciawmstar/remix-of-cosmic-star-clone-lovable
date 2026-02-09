@@ -112,10 +112,10 @@ export const ContactSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Vamos <span className="neon-text">conversar?</span>
+            Veja onde você está <span className="neon-text">perdendo clientes hoje</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Dê o primeiro passo para transformar sua presença digital
+            Saiba agora se o problema é falta de procura ou falta de visibilidade
           </p>
         </AnimateOnScroll>
 

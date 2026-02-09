@@ -5,7 +5,7 @@ const plans = [
   {
     icon: MapPin,
     title: 'Perfil de Empresa no Google',
-    subtitle: 'Ideal para empresas que dependem de clientes da região',
+    subtitle: 'Se já procuram pelo que você vende, mas não chegam até você',
     features: [
       'Melhora de posicionamento nas buscas do Google',
       'Mais ligações, mensagens no WhatsApp e visitas',
@@ -21,8 +21,8 @@ const plans = [
     title: 'Gestão de Tráfego Pago',
     subtitle: 'Ideal para quem quer acelerar vendas e escalar faturamento',
     features: [
-      'Anúncios no Google Ads e Meta Ads',
-      'Revisão de estrutura comercial',
+      'Sua empresa passa a aparecer para quem ainda não te conhece',
+      'Anúncios feitos para gerar mensagem, ligação ou lead',
       'Especialista de Copywriting para criativos',
       'Página de vendas de alta conversão',
       'Controle total de investimento e ROI',
@@ -52,8 +52,8 @@ export const UrgencySection = () => {
 
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-            Cada dia parado é um cliente a mais{' '}
-            <span className="neon-text">fechando com seu concorrente</span>
+            Cada negócio perde clientes por um motivo diferente.{' '}
+            <span className="neon-text"> Qual o seu hoje?</span>
           </h2>
         </AnimateOnScroll>
 

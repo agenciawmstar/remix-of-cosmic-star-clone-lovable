@@ -73,12 +73,12 @@ export const HeroSection = () => {
           {/* Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Quando seus clientes procuram no Google ou rolam o feed, eles só{' '}
-              <span className="neon-text">encontram seus concorrentes</span>
+              Seus clientes já estão procurando por você.A questão é: eles te encontram…{' '}
+              <span className="neon-text">ou encontram seu concorrente?</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-              Estar bem posicionado no Google deixou de ser diferencial — virou sobrevivência.
+              Todo negócio tem um ponto de vazamento de clientes. Nós analisamos onde você está perdendo. Seja no Google ou nos anúncios.
             </p>
 
             <a 
@@ -87,7 +87,7 @@ export const HeroSection = () => {
               rel="noopener noreferrer"
               className="btn-neon inline-flex items-center gap-2 text-lg group"
             >
-              Quero saber onde estou perdendo clientes
+              Quero descobrir meu cenário
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>

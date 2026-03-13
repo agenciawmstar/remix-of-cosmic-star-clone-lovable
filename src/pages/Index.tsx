@@ -10,7 +10,7 @@ import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import cosmicBg from '@/assets/cosmic-bg.jpg';
+import cosmicBg from '@/assets/cosmic-bg.webp';
 
 const Index = () => {
   return (

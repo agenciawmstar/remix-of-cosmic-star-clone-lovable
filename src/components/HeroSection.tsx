@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import astronautHero from '@/assets/astronaut-hero.png';
+import astronautHero from '@/assets/astronaut-hero.webp';
 
 // Custom SVG icons for social platforms
 const GoogleIcon = () => (

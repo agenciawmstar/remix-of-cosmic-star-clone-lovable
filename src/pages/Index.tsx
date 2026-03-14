@@ -15,11 +15,13 @@ import cosmicBgMobile from '@/assets/cosmic-bg-mobile.webp';
 import { useResponsiveImage } from '@/hooks/useResponsiveImage';
 
 const Index = () => {
+  const bgImage = useResponsiveImage(cosmicBg, cosmicBgMobile);
+
   return (
     <main 
       className="min-h-screen bg-background overflow-x-hidden relative"
       style={{
-        backgroundImage: `url(${cosmicBg})`,
+        backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

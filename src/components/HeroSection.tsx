@@ -35,11 +35,13 @@ const FacebookIcon = () => (
 );
 
 export const HeroSection = () => {
+  const heroImage = useResponsiveImage(astronautHero, astronautHeroMobile);
+
   return (
     <section 
       className="relative min-h-screen flex items-center pt-24 overflow-hidden"
       style={{
-        backgroundImage: `url(${astronautHero})`,
+        backgroundImage: `url(${heroImage})`,
         backgroundSize: 'contain',
         backgroundPosition: 'right center',
         backgroundRepeat: 'no-repeat',

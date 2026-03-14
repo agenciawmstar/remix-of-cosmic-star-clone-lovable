@@ -11,13 +11,17 @@ import { Footer } from '@/components/Footer';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import cosmicBg from '@/assets/cosmic-bg.webp';
+import cosmicBgMobile from '@/assets/cosmic-bg-mobile.webp';
+import { useResponsiveImage } from '@/hooks/useResponsiveImage';
 
 const Index = () => {
+  const bgImage = useResponsiveImage(cosmicBg, cosmicBgMobile);
+
   return (
     <main 
       className="min-h-screen bg-background overflow-x-hidden relative"
       style={{
-        backgroundImage: `url(${cosmicBg})`,
+        backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

@@ -39,6 +39,8 @@ export const Header = () => {
             <img
               src={wmStarLogo}
               alt="WM STAR - Agência Digital"
+              width={208}
+              height={208}
               className={`w-auto transition-all duration-500 ${
                 isScrolled
                   ? 'h-[6.75rem] md:h-[7rem] lg:h-[8.25rem]'

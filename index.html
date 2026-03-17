@@ -13,6 +13,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+    <!-- Critical CSS: prevent FOUC -->
+    <style>
+      :root{--background:0 0% 2%;--foreground:0 0% 98%;--primary:162 100% 50%}
+      body{background:hsl(0 0% 2%);color:hsl(0 0% 98%);font-family:'Inter',system-ui,sans-serif;margin:0}
+    </style>
     <link rel="preload" as="image" type="image/webp" href="/src/assets/astronaut-hero.webp" fetchpriority="high">
     <link rel="preload" as="image" type="image/webp" href="/src/assets/cosmic-bg.webp" fetchpriority="high">
     <link rel="icon" href="/fav1.ico" sizes="48x48" />

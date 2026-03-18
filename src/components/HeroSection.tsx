@@ -35,18 +35,24 @@ const FacebookIcon = () => (
 );
 
 export const HeroSection = () => {
-  const heroImage = useResponsiveImage(astronautHero, astronautHeroMobile);
-
   return (
     <section 
       className="relative min-h-screen flex items-center pt-24 overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'contain',
-        backgroundPosition: 'right center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
+      {/* Hero image as <img> for better LCP */}
+      <picture className="absolute inset-0 w-full h-full">
+        <source media="(max-width: 767px)" srcSet={astronautHeroMobile} type="image/webp" />
+        <source media="(min-width: 768px)" srcSet={astronautHero} type="image/webp" />
+        <img
+          src={astronautHero}
+          alt=""
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-contain object-right"
+          aria-hidden="true"
+        />
+      </picture>
       {/* Overlay gradientes para legibilidade - mais suave para mostrar o astronauta */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/40" />

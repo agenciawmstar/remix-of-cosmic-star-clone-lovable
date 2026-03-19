@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import astronautHero from '@/assets/astronaut-hero.webp';
 import astronautHeroMobile from '@/assets/astronaut-hero-mobile.webp';
@@ -33,13 +34,25 @@ const FacebookIcon = () => (
   </svg>
 );
 
+const HeroSkeleton = () => (
+  <div className="absolute inset-0 w-full h-full bg-muted animate-pulse">
+    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/40" />
+  </div>
+);
+
 export const HeroSection = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section 
       className="relative min-h-screen flex items-center pt-24 overflow-hidden"
     >
+      {/* Skeleton loader - visible until image loads */}
+      {!imageLoaded && <HeroSkeleton />}
+
       {/* Hero image as <img> for better LCP */}
-      <picture className="absolute inset-0 w-full h-full">
+      <picture className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <source media="(max-width: 767px)" srcSet={astronautHeroMobile} type="image/webp" />
         <source media="(min-width: 768px)" srcSet={astronautHero} type="image/webp" />
         <img
@@ -50,6 +63,7 @@ export const HeroSection = () => {
           decoding="async"
           className="w-full h-full object-contain object-right"
           aria-hidden="true"
+          onLoad={() => setImageLoaded(true)}
         />
       </picture>
       {/* Overlay gradientes para legibilidade - mais suave para mostrar o astronauta */}

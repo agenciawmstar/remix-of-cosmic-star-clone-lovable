@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import astronautHero from '@/assets/astronaut-hero.webp';
 import astronautHeroMobile from '@/assets/astronaut-hero-mobile.webp';
+import { whatsappLink } from '@/config/constants';
 
 // Custom SVG icons for social platforms
 const GoogleIcon = () => (
@@ -105,7 +106,7 @@ export const HeroSection = () => {
             </p>
 
             <a 
-              href="https://wa.me/5521968197138?text=Quero%20entender%20onde%20estou%20perdendo%20clientes.%20Vim%20da%20p%C3%A1gina%20da%20WM%20STAR%20e%20quero%20uma%20an%C3%A1lise%20do%20meu%20cen%C3%A1rio."
+              href={whatsappLink('Quero entender onde estou perdendo clientes. Vim da página da WM STAR e quero uma análise do meu cenário.')}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-neon inline-flex items-center gap-2 text-lg group"

@@ -1,7 +1,9 @@
+import { whatsappLink } from '@/config/constants';
+
 export const WhatsAppButton = () => {
   const handleClick = () => {
     window.open(
-      'https://wa.me/5521968197138?text=Acabei%20de%20ver%20a%20landing%20page%20da%20WM%20STAR%20e%20quero%20avaliar%20meu%20caso.',
+      whatsappLink('Acabei de ver a landing page da WM STAR e quero avaliar meu caso.'),
       '_blank'
     );
   };

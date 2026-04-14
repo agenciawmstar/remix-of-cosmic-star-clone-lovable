@@ -1,5 +1,6 @@
 import { MapPin, TrendingUp, Check, ArrowRight } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
+import { whatsappLink } from '@/config/constants';
 
 const plans = [
   {
@@ -41,7 +42,7 @@ export const UrgencySection = () => {
         <AnimateOnScroll className="text-center mb-8">
           <p className="text-primary font-semibold text-lg mb-4">Quebrar esse ciclo é urgente</p>
           <a 
-            href="https://wa.me/5521968197138?text=Quero%20mudar%20esse%20cen%C3%A1rio%20agora.%20Entendi%20o%20ciclo%20apresentado%20na%20p%C3%A1gina%20da%20WM%20STAR%20e%20preciso%20de%20ajuda."
+            href={whatsappLink('Quero mudar esse cenário agora. Entendi o ciclo apresentado na página da WM STAR e preciso de ajuda.')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-neon-outline mb-12 inline-block"
@@ -81,7 +82,7 @@ export const UrgencySection = () => {
                 </ul>
 
                 <a 
-                  href={`https://wa.me/5521968197138?text=${encodeURIComponent(plan.whatsappMessage)}`}
+                  href={whatsappLink(plan.whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full btn-neon inline-flex items-center justify-center gap-2 group/btn"

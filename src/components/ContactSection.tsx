@@ -3,12 +3,11 @@ import { ArrowRight, Send, Loader2, CheckCircle, MessageCircle } from 'lucide-re
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { toast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { whatsappLink } from '@/config/constants';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0X0q7J3VfsGCkCxDqUCLG-6yAGfz5AsaHiP0lGYszyg48rP_T8Tdoimg-5DsVDzFG4w/exec';
 
-const WHATSAPP_SUCCESS_MESSAGE = encodeURIComponent(
-  'Acabei de enviar meus dados pelo formulário da landing page da WM STAR e gostaria de agilizar o atendimento.'
-);
+const WHATSAPP_SUCCESS_MESSAGE = 'Acabei de enviar meus dados pelo formulário da landing page da WM STAR e gostaria de agilizar o atendimento.';
 
 const RATE_LIMIT_MS = 60000; // 1 minute between submissions
 
@@ -139,7 +138,7 @@ export const ContactSection = () => {
               </p>
               
               <a
-                href={`https://wa.me/5521968197138?text=${WHATSAPP_SUCCESS_MESSAGE}`}
+                href={whatsappLink(WHATSAPP_SUCCESS_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-neon inline-flex items-center justify-center gap-2 text-lg group w-full mb-4"

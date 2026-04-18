@@ -5,7 +5,7 @@ import { toast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { whatsappLink } from '@/config/constants';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0X0q7J3VfsGCkCxDqUCLG-6yAGfz5AsaHiP0lGYszyg48rP_T8Tdoimg-5DsVDzFG4w/exec';
+const CONTACT_API_URL = '/api/contact';
 
 const WHATSAPP_SUCCESS_MESSAGE = 'Acabei de enviar meus dados pelo formulário da landing page da WM STAR e gostaria de agilizar o atendimento.';
 
@@ -69,9 +69,8 @@ export const ContactSection = () => {
     try {
       const validated = result.data;
 
-      await fetch(APPS_SCRIPT_URL, {
+      const response = await fetch(CONTACT_API_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -81,6 +80,10 @@ export const ContactSection = () => {
           phone: validated.whatsapp,
         }),
       });
+
+      if (!response.ok) {
+        throw new Error(`Server responded with status ${response.status}`);
+      }
 
       sessionStorage.setItem('lastFormSubmit', Date.now().toString());
       setFormData({ nome: '', email: '', whatsapp: '' });
@@ -92,7 +95,7 @@ export const ContactSection = () => {
     } catch (error) {
       toast({
         title: "Erro ao enviar",
-        description: "Tente novamente em alguns instantes.",
+        description: "Não foi possível enviar seus dados. Tente novamente em alguns instantes.",
         variant: "destructive",
       });
     } finally {

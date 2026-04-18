@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import astronautHero from '@/assets/astronaut-hero.webp';
 import astronautHeroMobile from '@/assets/astronaut-hero-mobile.webp';
@@ -45,6 +45,16 @@ const HeroSkeleton = () => (
 export const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  const stars = useMemo(
+    () => Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 3}s`,
+    })),
+    []
+  );
+
   return (
     <section 
       className="relative min-h-screen flex items-center pt-24 overflow-hidden"
@@ -79,14 +89,14 @@ export const HeroSection = () => {
       
       {/* Animated Stars */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
+        {stars.map((star) => (
           <div
-            key={i}
+            key={star.id}
             className="absolute w-1 h-1 bg-primary rounded-full twinkle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: star.left,
+              top: star.top,
+              animationDelay: star.delay,
             }}
           />
         ))}

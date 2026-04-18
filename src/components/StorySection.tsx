@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Star, Sparkles, Rocket } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 
@@ -17,19 +18,30 @@ const storySteps = [
 ];
 
 export const StorySection = () => {
+  const stars = useMemo(
+    () => Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: `${2 + Math.random() * 2}s`,
+      delay: `${Math.random() * 2}s`,
+    })),
+    []
+  );
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Star Background */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+        {stars.map((star) => (
           <div
-            key={i}
+            key={star.id}
             className="absolute w-0.5 h-0.5 bg-foreground/30 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `twinkle ${2 + Math.random() * 2}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
+              left: star.left,
+              top: star.top,
+              animation: `twinkle ${star.duration} ease-in-out infinite`,
+              animationDelay: star.delay,
             }}
           />
         ))}

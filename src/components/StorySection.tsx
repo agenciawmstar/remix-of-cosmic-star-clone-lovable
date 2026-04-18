@@ -50,7 +50,7 @@ export const StorySection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
           {storySteps.map((step, index) => (
-            <AnimateOnScroll key={index} delay={index * 200}>
+            <AnimateOnScroll key={step.text} delay={index * 200}>
               <div className="relative">
                 {/* Connection Line */}
                 {index < storySteps.length - 1 && (

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ interface AnimateOnScrollProps {
   delay?: number;
 }
 
-export const AnimateOnScroll = ({ children, className = '', delay = 0 }: AnimateOnScrollProps) => {
+const AnimateOnScrollBase = ({ children, className = '', delay = 0 }: AnimateOnScrollProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -42,3 +42,5 @@ export const AnimateOnScroll = ({ children, className = '', delay = 0 }: Animate
     </div>
   );
 };
+
+export const AnimateOnScroll = memo(AnimateOnScrollBase);

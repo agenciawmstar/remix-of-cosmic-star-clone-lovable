@@ -5,10 +5,7 @@ export default async function handler(request: Request): Promise<Response> {
     return json({ error: 'Method not allowed' }, 405);
   }
 
-  const appsScriptUrl = process.env.APPS_SCRIPT_URL;
-  if (!appsScriptUrl) {
-    return json({ error: 'Server misconfiguration: APPS_SCRIPT_URL not set' }, 500);
-  }
+  const appsScriptUrl = process.env.APPS_SCRIPT_URL ?? 'https://script.google.com/macros/s/AKfycbz0X0q7J3VfsGCkCxDqUCLG-6yAGfz5AsaHiP0lGYszyg48rP_T8Tdoimg-5DsVDzFG4w/exec';
 
   let body: unknown;
   try {

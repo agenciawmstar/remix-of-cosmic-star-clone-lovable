@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import astronautHero from '@/assets/astronaut-hero.webp';
 import astronautHeroMobile from '@/assets/astronaut-hero-mobile.webp';
 import { whatsappLink } from '@/config/constants';
+import { trackLead } from '@/lib/pixel';
 
 // Custom SVG icons for social platforms
 const GoogleIcon = () => (
@@ -115,11 +116,12 @@ export const HeroSection = () => {
               Todo negócio tem um ponto de vazamento de clientes. Nós analisamos onde você está perdendo. Seja no Google ou nos anúncios.
             </p>
 
-            <a 
+            <a
               href={whatsappLink('Quero entender onde estou perdendo clientes. Vim da página da WM STAR e quero uma análise do meu cenário.')}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-neon inline-flex items-center gap-2 text-lg group"
+              onClick={() => trackLead()}
             >
               Quero descobrir meu cenário
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

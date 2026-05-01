@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { whatsappLink } from '@/config/constants';
+import { trackLead } from '@/lib/pixel';
 
 export const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,6 +42,7 @@ export const ExitIntentPopup = () => {
   };
 
   const handleWhatsApp = () => {
+    trackLead();
     window.open(
       whatsappLink('Acabei de ver a landing page da WM STAR e quero avaliar meu caso.'),
       '_blank'

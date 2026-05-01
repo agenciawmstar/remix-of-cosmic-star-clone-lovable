@@ -4,6 +4,7 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 import { toast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { whatsappLink } from '@/config/constants';
+import { trackCompleteRegistration } from '@/lib/pixel';
 
 const CONTACT_API_URL = '/api/contact';
 
@@ -88,6 +89,7 @@ export const ContactSection = () => {
       sessionStorage.setItem('lastFormSubmit', Date.now().toString());
       setFormData({ nome: '', email: '', whatsapp: '' });
       setIsSuccess(true);
+      trackCompleteRegistration();
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({
         event: 'form_submit_success'

@@ -1,6 +1,7 @@
 import { MapPin, TrendingUp, Check, ArrowRight } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { whatsappLink } from '@/config/constants';
+import { trackLead } from '@/lib/pixel';
 
 const plans = [
   {
@@ -41,11 +42,12 @@ export const UrgencySection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll className="text-center mb-8">
           <p className="text-primary font-semibold text-lg mb-4">Quebrar esse ciclo é urgente</p>
-          <a 
+          <a
             href={whatsappLink('Quero mudar esse cenário agora. Entendi o ciclo apresentado na página da WM STAR e preciso de ajuda.')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-neon-outline mb-12 inline-block"
+            onClick={() => trackLead()}
           >
             Quero mudar isso agora
           </a>
@@ -81,11 +83,12 @@ export const UrgencySection = () => {
                   ))}
                 </ul>
 
-                <a 
+                <a
                   href={whatsappLink(plan.whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full btn-neon inline-flex items-center justify-center gap-2 group/btn"
+                  onClick={() => trackLead()}
                 >
                   Avaliar Cenário
                   <ArrowRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1" />

@@ -9,6 +9,12 @@ export const Footer = () => {
           <span className="text-muted-foreground/60 text-xs">
             CNPJ: 62.741.551/0001-63
           </span>
+          <a
+            href="/privacidade"
+            className="text-muted-foreground/60 text-xs hover:text-primary transition-colors duration-300"
+          >
+            Política de Privacidade
+          </a>
         </div>
       </div>
     </footer>

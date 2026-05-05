@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, Send, Loader2, CheckCircle, MessageCircle } from 'lucide-react';
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { whatsappLink } from '@/config/constants';
 import { trackCompleteRegistration } from '@/lib/pixel';
@@ -44,11 +44,7 @@ export const ContactSection = () => {
     // Rate limiting
     const lastSubmit = sessionStorage.getItem('lastFormSubmit');
     if (lastSubmit && Date.now() - parseInt(lastSubmit) < RATE_LIMIT_MS) {
-      toast({
-        title: "Aguarde",
-        description: "Por favor, aguarde um momento antes de enviar novamente.",
-        variant: "destructive",
-      });
+      toast.error("Por favor, aguarde um momento antes de enviar novamente.");
       return;
     }
 
@@ -95,11 +91,7 @@ export const ContactSection = () => {
         event: 'form_submit_success'
       });
     } catch (error) {
-      toast({
-        title: "Erro ao enviar",
-        description: "Não foi possível enviar seus dados. Tente novamente em alguns instantes.",
-        variant: "destructive",
-      });
+      toast.error("Não foi possível enviar seus dados. Tente novamente em alguns instantes.");
     } finally {
       setIsSubmitting(false);
     }

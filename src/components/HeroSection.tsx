@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import astronautHero from '@/assets/astronaut-hero.webp';
-import astronautHeroMobile from '@/assets/astronaut-hero-mobile.webp';
+
+const astronautHero = '/astronaut-hero.webp';
+const astronautHeroMobile = '/astronaut-hero-mobile.webp';
 
 // Custom SVG icons for social platforms
 const GoogleIcon = () => (

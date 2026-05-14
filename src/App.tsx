@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const Privacidade = lazy(() => import("./pages/Privacidade"));
+const ObrigadoGmn = lazy(() => import("./pages/ObrigadoGmn"));
 
 const App = () => (
   <>
@@ -15,6 +16,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/privacidade" element={<Suspense fallback={null}><Privacidade /></Suspense>} />
+        <Route path="/obrigado-gmn" element={<Suspense fallback={null}><ObrigadoGmn /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

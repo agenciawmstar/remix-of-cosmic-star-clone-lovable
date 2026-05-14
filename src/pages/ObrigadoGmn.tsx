@@ -7,13 +7,23 @@ const WA_LINK =
 
 export default function ObrigadoGmn() {
   useEffect(() => {
-    trackCompleteRegistration();
+    console.log("[ObrigadoGmn] useEffect executando");
+    console.log("[ObrigadoGmn] window.fbq disponível:", typeof (window as any).fbq);
 
-    const timer = setTimeout(() => {
+    // Aguarda 500ms para garantir que fbevents.js carregou e processou o init
+    const pixelTimer = setTimeout(() => {
+      console.log("[ObrigadoGmn] disparando CompleteRegistration");
+      trackCompleteRegistration();
+    }, 500);
+
+    const redirectTimer = setTimeout(() => {
       window.location.href = WA_LINK;
     }, 3000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(pixelTimer);
+      clearTimeout(redirectTimer);
+    };
   }, []);
 
   return (

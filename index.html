@@ -151,7 +151,7 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       if (!window._fbPixelInited) {
         fbq('init', '4135096210070794');
-        fbq('track', 'PageView');
+        fbq('track', 'PageView', {}, {eventID: 'pv_' + Date.now()});
         window._fbPixelInited = true;
       }
     </script>

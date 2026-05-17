@@ -5,4 +5,4 @@ export const fbq = (...args: unknown[]) => {
 };
 
 export const trackLead = () => fbq('track', 'Lead');
-export const trackCompleteRegistration = () => fbq('track', 'CompleteRegistration');
+export const trackCompleteRegistration = () => fbq('track', 'CompleteRegistration', {}, {eventID: 'cr_' + Date.now()});
